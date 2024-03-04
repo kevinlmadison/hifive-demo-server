@@ -8,15 +8,13 @@ use axum::http::{
     HeaderValue, Method,
 };
 use route::create_router;
-use tower_http::cors::CorsLayer;
+use tower_http::cors::{CorsLayer, Any};
 
 #[tokio::main]
 async fn main() {
     let cors = CorsLayer::new()
-        .allow_origin("*".parse::<HeaderValue>().unwrap())
-        .allow_methods([Method::GET, Method::POST, Method::PATCH, Method::DELETE]);
-        // .allow_credentials(true)
-        // .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE]);
+        .allow_origin(Any)
+        .allow_methods([Method::GET, Method::PATCH);
 
     let app = create_router().layer(cors);
 
