@@ -14,7 +14,7 @@ use tower_http::cors::{CorsLayer, Any};
 async fn main() {
     let cors = CorsLayer::new()
         .allow_origin(Any)
-        .allow_methods([Method::GET, Method::PATCH);
+        .allow_methods([Method::GET, Method::PATCH]);
 
     let app = create_router().layer(cors);
 
