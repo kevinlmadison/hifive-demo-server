@@ -18,7 +18,8 @@ async fn main() {
     //     .allow_credentials(true)
     //     .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE]);
 
-    let app = create_router().layer(cors);
+    // let app = create_router().layer(cors);
+    let app = create_router();
 
     println!("🚀 Server started successfully");
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8000").await.unwrap();
